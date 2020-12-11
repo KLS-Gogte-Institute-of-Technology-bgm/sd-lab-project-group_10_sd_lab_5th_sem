@@ -4,19 +4,19 @@
 		var barChartData_today = {
 			labels: MONTHS,
 			datasets: [{
-				label: 'Four Wheeler ',
+				label: {{a|safe}},
 				backgroundColor: 'red',
 				borderColor: 'red',
 				borderWidth: 1,
 				data: {{four_today}}
 				}, {
-				label: 'Two Wheeler',
+				label: {{b|safe}},
 				backgroundColor: 'blue',
 				borderColor: 'blue',
 				borderWidth: 1,
 				data: {{two_today}}
 			},{
-				label: 'Bicycle',
+				label: {{c|safe}},
 				backgroundColor: 'yellow',
 				borderColor: 'yellow',
 				borderWidth: 1,

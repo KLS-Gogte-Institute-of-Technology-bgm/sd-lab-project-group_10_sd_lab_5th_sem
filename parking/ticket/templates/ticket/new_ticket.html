@@ -6,38 +6,23 @@
          {{messages}}
     {% endif %}
 </div>
-<br><br>
+
 <form method="POST" action="">
     {% csrf_token %}
-    <div class="row">
-        <div class="container ">
-            <div>
-                <h6>Vehicle type : {{form.vehicle_type}}</h6><br>
-                <h6>Owner name : {{form.owner_name}}</h6><br>
-                <h6>Vehicle number : {{form.vehicle_number}}</h6><br>
-                <h6>Phone number : {{form.phone_number}}</h6><br>
-                <h6>Slot : {{form.slot}}</h6><br>
-                <h6>Validity time : {{form.valid_time}}</h6><br>
-                <h6>Slot active : {{form.slot_active}}</h6><br>
-                <!-- {{form}} -->
-            </div>
-                <input type="submit" name="Submit"> 
-        </div>
-        <div >
-            <div class="container">
-                <div>
-                    <div class="card-body">
-                        <h4>Slot left :</h4>
-                        {% for i in Slot %}
-                            <p>{{i}}</p>
-                        {% endfor %}
-                        <h3 class="card-title"></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h6>Vehicle type : {{form.vehicle_type}}</h6><br>
+    <h6>Owner name : {{form.owner_name}}</h6><br>
+    <h6>Vehicle number : {{form.vehicle_number}}</h6><br>
+    <h6>Phone number : {{form.phone_number}}</h6><br>
+    <h6>Slot : {{form.slot}}</h6><br>
+    <h6>Validity time : {{form.valid_time}}</h6><br>
+    <h6>Slot active : {{form.slot_active}}</h6><br>
+    <input type="submit" name="Submit"> 
 </form>
-
+<div class="card-body">
+    <h4>Slot left :</h4>
+    {% for i in Slot %}
+        <p>{{i}}</p>
+    {% endfor %}
+</div>
 
 {% endblock %}

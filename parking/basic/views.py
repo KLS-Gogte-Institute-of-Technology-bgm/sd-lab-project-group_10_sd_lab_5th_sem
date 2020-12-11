@@ -60,7 +60,7 @@ def loginPage(request):
     return render(request,'basic/login.html')
 
 @login_required(login_url='/login')
-@allowed_users(allowed_roles=['manager','watchman','customer'])
+@allowed_users(allowed_roles=['manager','watchman','customer','admin'])
 def logoutPage(request):
     logout(request)
     return redirect('/login')

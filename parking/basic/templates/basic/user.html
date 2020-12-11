@@ -1,0 +1,53 @@
+{%  extends 'basic/main.html' %}
+{% block content %}
+
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+</style>
+		<div class="card center">
+			{% for message in messages %}
+			<p id='messages'>{{message}}</p>
+			{% endfor %}
+		</div>
+<hr>
+<div class="row">
+
+	<div class="col-md-3">
+		<div class="card card-body">
+			<a class="btn btn-warning" href="/ticket"> &#8592; Back to Ticket</a>
+			<hr>
+			<h3 style="text-align: center">Account Settings</h3>
+			<hr>
+			<img class="profile-pic" src="{{request.user.profile.profile_pic.url}}" >
+		</div>
+    </div>
+    
+	<div class="col-md-9">
+		<div class="card card-body">
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				<p>
+					<label >UserName : {{user.username}}</label> 
+				</p>
+				<p>
+					<label >UserEmail : {{user.email}}</label> 
+				</p>
+				<p>
+					<label for="id_phone">Phone:</label> <input type="text" name="phone" value="9876543215" maxlength="12" required="" id="id_phone">
+				</p>
+				<p>
+					<label for="id_profile_pic">Profile pic:</label> <input type="file" name="profile_pic" accept="image/*" id="id_profile_pic">
+				</p>
+			    <input class="btn btn-primary" type="submit" name="Update Information">
+			</form>
+		</div>
+    </div>
+    
+</div>
+
+{% endblock %}

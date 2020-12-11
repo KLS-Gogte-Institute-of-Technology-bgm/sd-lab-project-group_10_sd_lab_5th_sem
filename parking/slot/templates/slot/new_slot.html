@@ -1,0 +1,21 @@
+{%  extends 'slot/main.html' %}
+{% block content %}
+<div class="container">
+    {% if message %}
+    {{message}}
+    {% endif %}
+</div>
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <div class="container">
+            {{form}}   
+        </div>
+    <a href="/slot"> Cancle</a>
+    <input type="submit" name="Submit">
+    </div>
+</form>
+
+{% endblock %}
+

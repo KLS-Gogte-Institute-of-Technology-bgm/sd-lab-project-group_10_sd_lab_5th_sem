@@ -1,0 +1,12 @@
+{%  extends 'slot/main.html' %}
+{% load static %}
+{% block content %}
+
+<p>Are you sure to delete "{{name}}" Slot ?</p>
+<form method="POST" action="">
+    {% csrf_token %}
+    <a href="/slot"> Cancle</a>
+    <input type="submit" name='Confirm'>
+</form>
+{% endblock %}
+

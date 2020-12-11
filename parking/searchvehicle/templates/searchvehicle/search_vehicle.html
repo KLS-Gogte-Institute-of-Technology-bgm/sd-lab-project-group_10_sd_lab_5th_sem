@@ -1,0 +1,55 @@
+{%  extends 'searchvehicle/main.html' %}
+
+{% block content %}
+<div class="container">
+<div class="container">
+    <form method="GET">
+        {% csrf_token %}
+        <div class="row">
+            <h6>Vehicle number :{{myFilter.form.vehicle_number}}</h6>
+            <h6>Owner name :{{myFilter.form.owner_name}}</h6>
+            <h6>Phone number :{{myFilter.form.phone_number}}</h6>
+            <h6>Slot :{{myFilter.form.slot}}</h6>
+            <!-- <h6>Date >= :{{myFilter.form.start_date}}</h6>
+            <h6>Date <= : {{myFilter.form.end_date}}</h6> -->
+            <button type="submit" class="btn btn-info mt-2">Submit</button>
+        </div>
+    </form>
+</div>
+<br>
+<hr>
+<br>
+<div class="row">
+	<div class="col">
+		<div class="col-md ">
+            <div class="row " id="ink">
+                <div class="col">Ticket Id</div>
+                <div class="col">Type</div>
+                <div class="col">Owner Name</div>
+                <div class="col">Date</div>
+                <div class="col">Vehicle Number</div>
+                <div class="col">Phone Number</div>
+                <div class="col">Slot Name</div>
+                <div class="col">Valid time </div>
+            </div>
+        </div>
+        <br>
+        {% for i in ticket %}
+            <div class="col-md">
+                <div class="row">
+                    <div class="col">{{i.ticket_id}}</div>
+                    <div class="col">{{i.vehicle_type}}</div>
+                    <div class="col">{{i.owner_name}}</div>
+                    <div class="col">{{i.date}}</div>
+                    <div class="col">{{i.vehicle_number}}</div>
+                    <div class="col">{{i.phone_number}}</div>
+                    <div class="col">{{i.slot}}</div>
+                    <div class="col">{{i.valid_time}} </div>
+                </div>
+            </div>
+        {% endfor %}
+	</div>
+</div>
+</div>
+{% endblock %}
+

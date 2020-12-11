@@ -1,0 +1,22 @@
+{%  extends 'ticket/main.html' %}
+{% load static %}
+{% block content %}
+<div class="consainer mx-4">
+    {% if messages %}
+         {{messages}}
+    {% endif %}
+</div>
+<br><br>
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="container ">
+        <div>
+                {{slot}}
+        </div>
+    <input type="submit" name="Submit"> 
+    </div>
+    
+</form>
+
+
+{% endblock %}

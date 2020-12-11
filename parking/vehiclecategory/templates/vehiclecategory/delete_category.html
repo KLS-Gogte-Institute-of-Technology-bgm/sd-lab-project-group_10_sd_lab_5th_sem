@@ -1,0 +1,10 @@
+{%  extends 'vehiclecategory/main.html' %}
+{% load static %}
+{% block content %}
+<p>Are you sure to delete "{{name}}" ?</p>
+<form method="POST" action="">
+    {% csrf_token %}
+    <a href="/vehiclecategory"> Cancle</a>
+    <input type="submit" name='Confirm'>
+</form>
+{% endblock %}

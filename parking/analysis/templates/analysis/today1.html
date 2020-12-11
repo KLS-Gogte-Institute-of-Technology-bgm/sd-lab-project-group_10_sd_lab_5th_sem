@@ -1,0 +1,19 @@
+
+<script>
+    var config_total = {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: {{data_total|safe}},
+          backgroundColor: [
+            'red',
+            'yellow',
+            'blue',
+          ],
+          label: 'Dataset 1'
+        }],
+        labels: {{labels|safe}},
+      },
+  };
+  </script>
+

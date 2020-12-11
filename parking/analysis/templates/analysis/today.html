@@ -1,0 +1,21 @@
+
+<script>
+    var config_today = {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: {{data_today|safe}},
+          backgroundColor: [
+            'red',            
+            'yellow',
+            'blue',
+          ],
+          label: 'Dataset 1'
+        }],
+        labels: {{labels|safe}},
+      },
+  };
+
+    
+  </script>
+

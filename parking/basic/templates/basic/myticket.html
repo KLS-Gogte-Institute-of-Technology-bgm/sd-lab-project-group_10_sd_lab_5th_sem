@@ -1,0 +1,36 @@
+{%  extends 'basic/main.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="col-md ">
+                <h3>My Booked ticket :</h3>
+                <hr>
+                <div class="row " id="ink">
+                    <div class="col">Ticket Id</div>
+                    <div class="col">Type</div>
+                    <div class="col">Date</div>
+                    <div class="col">Vehicle Number</div>
+                    <div class="col">Slot Name</div>
+                    <div class="col">Valid time </div>
+                </div>
+            </div>
+            <br>
+            {% for i in ticket %}
+                <div class="col-md">
+                    <div class="row">
+                        <div class="col">{{i.ticket_id}}</div>
+                        <div class="col">{{i.vehicle_type}}</div>
+                        <div class="col">{{i.date}}</div>
+                        <div class="col">{{i.vehicle_number}}</div>
+                        <div class="col">{{i.slot}}</div>
+                        <div class="col">{{i.valid_time}} </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

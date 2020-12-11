@@ -1,0 +1,50 @@
+{%  extends 'managevehicle/main.html' %}
+{% load static%}
+{% block content %}
+
+<div class="container">
+    <h4>{{message}}</h4>
+</div>
+<br>
+<form method="POST" action="">
+    {% csrf_token %}
+    <!-- <h3>You can add here vehicle category</h3><br> -->
+    <!-- <div class="container ">
+        <div class="row mx-3 col-4">
+            <th>Vehicle Type   :</th>{{form.vehicle_type}}<br>
+        </div>
+        <div class="row mx-3 col-4">
+            <th>Owner name :</th>{{form.owner_name}}<br>
+        </div>
+        <div class="row mx-3 col-4">
+            <th>Vehicle Number :</th>{{form.vehicle_number}}<br>
+        </div>
+        <div class="row mx-3 col-4">
+            <th>Phone Number :</th>{{form.phone_number}}<br>
+        </div>
+        <div class="row mx-3 col-4">
+            <th>Valid time :</th>{{form.valid_time}}<br>
+        </div>
+        <div class="row mx-3 col-4">
+            <th>Slot :</th>{{form.slot}}<br>
+        </div>
+        <div class="row mx-3 col-4">
+            <h3>Other Details can't be changed where ticket is generated</h3>
+        </div>
+        <div class="row mx-3 col-4">
+            <th>Slot State :</th>{{form.slot_active}}<br>
+        </div>
+    </div> -->
+    {{form}}
+    <div class="row mx-3 col-4">
+        <input type="submit" name="Submit"> 
+    </div>
+</form>
+<br>
+<div class="container">
+<h4> Extra parking slot which are free please select those if you want to change: </h4>
+    {% for i in choice %}
+            <p>{{i}}</p>
+    {% endfor %}
+</div>
+{% endblock %}

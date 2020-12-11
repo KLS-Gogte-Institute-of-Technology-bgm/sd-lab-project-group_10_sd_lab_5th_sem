@@ -1,0 +1,24 @@
+{%  extends 'vehiclecategory/main.html' %}
+{% load static %}
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <!-- <h3>You can add here vehicle category</h3><br> -->
+    <div class="container ">
+        <div class="row mx-3 col-4">
+            <th>Type   :</th>{{form.type}}<br>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div class="row mx-3 col-4">
+            <th>Describe :</th>{{form.describe}}<br>
+        </div>
+    <input type="submit" name="Submit"> 
+    </div>
+    
+</form>
+
+
+{% endblock %}

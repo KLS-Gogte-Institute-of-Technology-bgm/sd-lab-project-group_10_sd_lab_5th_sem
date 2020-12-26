@@ -1,24 +1,49 @@
-{%  extends 'vehiclecategory/main.html' %}
+{% extends 'vehiclecategory/main.html' %}
 {% load static %}
 {% block content %}
 
-<form method="POST" action="">
-    {% csrf_token %}
-    <!-- <h3>You can add here vehicle category</h3><br> -->
-    <div class="container ">
-        <div class="row mx-3 col-4">
-            <th>Type   :</th>{{form.type}}<br>
-        </div>
-        <div>
+
+<html>
+
+<head>
+    <title>Create Category</title>
+    <style>
+        .jumbotron {
+            width: 55%;
+            margin: 50px auto;
+        }
+
+        p {
+            font-size: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="jumbotron">
+        <hr class="my-4">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="row mx-3 col-6">
+                <th>Type :</th>{{form.type}}<br>
+            </div>
+            <div>
+                <br>
+            </div>
+            <div class="row mx-3 col-6">
+                <th>Describe:</th>{{form.describe}}<br>
+            </div>
             <br>
-        </div>
-        <div class="row mx-3 col-4">
-            <th>Describe :</th>{{form.describe}}<br>
-        </div>
-    <input type="submit" name="Submit"> 
+            <input class="btn btn-danger btn-lg" type="submit" name="Confirm">
+        </form>
     </div>
-    
-</form>
+</body>
+
+</html>
+
 
 
 {% endblock %}

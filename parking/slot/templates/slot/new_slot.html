@@ -1,21 +1,59 @@
-{%  extends 'slot/main.html' %}
+{% extends 'slot/main.html' %}
 {% block content %}
 <div class="container">
     {% if message %}
     {{message}}
     {% endif %}
 </div>
-<br>
-<form action="" method="POST">
-    {% csrf_token %}
-    <div class="container">
-        <div class="container">
-            {{form}}   
-        </div>
-    <a href="/slot"> Cancle</a>
-    <input type="submit" name="Submit">
+
+
+
+
+
+
+<html>
+
+<head>
+    <title>Create Slot</title>
+    <style>
+        .jumbotron {
+            width: 55%;
+            margin: 50px auto;
+        }
+
+        p {
+            font-size: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="jumbotron">
+        <hr class="my-4">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="container">
+                {{form}}
+            </div>
+            <br>
+            <div class="row">
+                <a class="btn btn-info btn-lg  mx-4" id="float-left" href="/slot"> Cancle</a>
+                <input class="btn btn-danger btn-lg  " id="float-right" type="submit" name="Confirm">
+            </div>
+        </form>
     </div>
-</form>
+</body>
+
+</html>
+
+
+
+
+
+
+
 
 {% endblock %}
-

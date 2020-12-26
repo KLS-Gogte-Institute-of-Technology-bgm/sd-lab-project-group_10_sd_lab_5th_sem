@@ -18,8 +18,9 @@ def createSlot(request):
     form = SlotForm()
     if request.method == 'POST':
         a = request.POST['slot_name']
+        a = a.upper()
         slot = Slot.objects.filter(slot_name = a)
-        if not slot:
+        if len(slot)<1:
             form = SlotForm(request.POST)
             if form.is_valid():
                 form.save()
@@ -34,8 +35,9 @@ def updateSlot(request,pk):
     form = SlotForm(instance=slot)
     if request.method == 'POST':
         a = request.POST['slot_name']
+        a = a.upper()
         slot1 = Slot.objects.filter(slot_name = a)
-        if not slot1:
+        if len(slot1)<2:
             form = SlotForm(request.POST,instance=slot)
             if form.is_valid():
                 form.save() 

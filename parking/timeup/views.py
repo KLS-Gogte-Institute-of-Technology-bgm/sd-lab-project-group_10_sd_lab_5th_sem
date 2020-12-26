@@ -16,4 +16,6 @@ def timeup(request):
     startdate = date.today()
     enddate = startdate + timedelta(days=1)
     ticket_active = Ticket.objects.filter(date__range=[startdate, enddate],slot_active=True)
+
+    print('hi',x)
     return render(request,'timeup/timeup.html',{'ticket':ticket_active})

@@ -13,3 +13,10 @@ body{
 #orders-pending{
     background-color: #5695f3;
 }
+
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 100px;
+}

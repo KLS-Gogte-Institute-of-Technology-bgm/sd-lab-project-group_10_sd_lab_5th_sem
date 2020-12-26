@@ -42,8 +42,9 @@ def createTicket(request):
                 form.save()
                 return redirect('/ticket') 
             else:
-                return render(request,'ticket/new_ticket.html',{'form':form,'messages':f'{a} Slot is alredy booked please choose diffrent slot'})
-    return render(request,'ticket/new_ticket.html',{'form':form,'Slot':ls})
+                return render(request,'ticket/new_ticket.html',{'form':form,'messages':f'{a} Slot is alredy booked please choose diffrent slot','Slot':ls,'yes':True})
+    print('hi'*10)
+    return render(request,'ticket/new_ticket.html',{'form':form,'Slot':ls,'yes':True})
 
 @login_required(login_url='/login')
 @admin_only

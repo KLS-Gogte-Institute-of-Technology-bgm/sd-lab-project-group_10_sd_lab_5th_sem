@@ -1,26 +1,27 @@
-{%  extends 'managevehicle/main.html' %}
+{% extends 'managevehicle/main.html' %}
 
 {% block content %}
 
 
 
 <div class="container">
-<div class="row">
-	<div class="col">
-		<div class="col-md ">
-            <h1>Present Parked vehicle</h1>
-            <div class="row " id="ink">
-                <div class="col">Ticket Id</div>
-                <div class="col">Type</div>
-                <div class="col">Date</div>
-                <div class="col">Vehicle Number</div>
-                <div class="col">Slot Name</div>
-                <div class="col">Valid time </div>
-                <div class="col">Action</div>
+    <div class="row">
+        <div class="col mx-3" style="background-color:#aaa;">
+            <div class="col-md ">
+                <h1>Present Parked vehicle</h1>
+                <br>
+                <div class="row " id="ink">
+                    <div class="col">Ticket Id</div>
+                    <div class="col">Type</div>
+                    <div class="col">Date</div>
+                    <div class="col">Vehicle Number</div>
+                    <div class="col">Slot Name</div>
+                    <div class="col">Valid time </div>
+                    <div class="col">Action</div>
+                </div>
             </div>
-        </div>
-        <br>
-        {% for i in active %}
+            <br>
+            {% for i in active %}
             <div class="col-md">
                 <div class="row">
                     <div class="col">{{i.ticket_id}}</div>
@@ -32,30 +33,31 @@
                     <div class="col">
                         <div class="col-sm">
                             <th><a class="btn btn-sm btn-info" href="{% url 'updateTicket' i.ticket_id %}">Edit</a></th>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        {% endfor %}
-	</div>
-
-    
-    <h1></h1>
-    <div class="col">
-		<div class="col-md">
-            <h1>Previous Parked Vehicle</h1>
-            <div class="row" id="ink">
-                <div class="col">Ticket Id</div>
-                <div class="col">Type</div>
-                <div class="col">Date</div>
-                <div class="col">Vehicle No</div>
-                <div class="col">Slot</div>
-                <div class="col">Valid time </div>
-                <div class="col">Action</div>
-            </div>
+            {% endfor %}
         </div>
-        <br>
-        {% for j in notactive %}
+
+
+        <h1></h1>
+        <div class="col" style="background-color:#aaa;">
+            <div class="col-md">
+                <h1>Previous Parked Vehicle</h1>
+                <br>
+                <div class="row" id="ink">
+                    <div class="col">Ticket Id</div>
+                    <div class="col">Type</div>
+                    <div class="col">Date</div>
+                    <div class="col">Vehicle No</div>
+                    <div class="col">Slot</div>
+                    <div class="col">Valid time </div>
+                    <div class="col">Action</div>
+                </div>
+            </div>
+            <br>
+            {% for j in notactive %}
             <div class="col-md">
                 <div class="row">
                     <div class="col">{{j.ticket_id}}</div>
@@ -68,13 +70,12 @@
                         <div class="col-sm">
                             <th><a class="btn btn-sm btn-info" href="{% url 'updateTicket' j.ticket_id %}">Edit</a></th>
                             <th><a></a></th>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        {% endfor %}
-	</div>
-</div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
-

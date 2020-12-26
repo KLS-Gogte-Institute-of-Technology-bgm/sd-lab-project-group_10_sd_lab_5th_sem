@@ -45,6 +45,9 @@ def analysis(request):
         'bicy_today':[bicy_today],
         'a':[str(veh[0])],
         'b':[str(veh[1])],
-        'c':[str(veh[2])]
+        'c':[str(veh[2])],
+        'vel1':[8,6,2,12,5,2,1,3,11,1,5,3],
+        'vel2':[1,8,4,9,5,1,7,8,1,3,1,4],
+        'vel3':[6,2,3,5,12,6,4,1,9,1,11,12]
         }
     return render(request,'analysis/analysis.html',context)

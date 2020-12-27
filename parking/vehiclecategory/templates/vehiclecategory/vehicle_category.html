@@ -1,0 +1,51 @@
+{% extends 'vehiclecategory/main.html' %}
+
+{% block content %}
+<h1 style="text-align:center">Manage vehicle category</h1>
+<br>
+<hr>
+{{message}}
+<div class="container">
+  <th><a class="btn btn-sm btn-info" href="{% url 'createCategory' %}">Create new Category</a></th>
+</div>
+<hr>
+<div class="container">
+  <div class="row mx-3">
+    <div class="col-sm">
+      S.No
+    </div>
+    <div class="col-sm">
+      Category
+    </div>
+    <div class="col-sm">
+      Description
+    </div>
+    <div class="col-sm">
+      Action
+    </div>
+  </div>
+</div>
+<hr>
+{% for i in category %}
+<div class="container">
+  <div class="row mx-3">
+
+    <div class="col-sm">
+      {{i.category_id}}
+    </div>
+    <div class="col-sm">
+      {{i.type}}
+    </div>
+    <div class="col-sm">
+      {{i.describe|slice:25}}.....
+    </div>
+    <div class="col-sm">
+      <th><a class="btn btn-sm btn-info" href="{% url 'vehicle_category_unique' i.category_id %}">Edit</a></th>
+      <th><a class="btn btn-sm btn-danger" href="{% url 'deleteCategory' i.category_id %}">Delete</a></th>
+    </div>
+
+  </div>
+</div>
+<br>
+{% endfor %}
+{% endblock %}

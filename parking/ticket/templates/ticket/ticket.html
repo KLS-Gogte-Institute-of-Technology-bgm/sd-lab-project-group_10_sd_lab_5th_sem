@@ -1,0 +1,28 @@
+{% extends 'ticket/main.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'ticket/status.html' %}
+
+<!-- <div class="row">
+    <div class="col-md mx-3">
+        <div class="card text-center text-white  mb-3" id="Book-slot">
+            <div class="card-header">
+                <h5 class="card-title"><a href="{% url 'createSlot' %}"> Create new Slot</a></h5>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<hr>
+<div class="col">
+    <div class="col-md mx-12">
+        <div class="card text-center text-white  mb-5" id="Book-ticket">
+            <div class="card-header">
+                <h5 class="card-title"><a href="{% url 'createTicket' %}"> Create new Ticket</a></h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'managevehicle/main.html' %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col mx-3" style="background-color:#aaa;">
+            <div class="col-md ">
+                <h1>Present Parked vehicle</h1>
+                <br>
+                <div class="row " id="ink">
+                    <div class="col">Ticket Id</div>
+                    <div class="col">Type</div>
+                    <div class="col">Date</div>
+                    <div class="col">Vehicle Number</div>
+                    <div class="col">Slot Name</div>
+                    <div class="col">Valid time </div>
+                    <div class="col">Action</div>
+                </div>
+            </div>
+            <br>
+            {% for i in active %}
+            <div class="col-md">
+                <div class="row">
+                    <div class="col">{{i.ticket_id}}</div>
+                    <div class="col">{{i.vehicle_type}}</div>
+                    <div class="col">{{i.date}}</div>
+                    <div class="col">{{i.vehicle_number}}</div>
+                    <div class="col">{{i.slot}}</div>
+                    <div class="col">{{i.valid_time}} </div>
+                    <div class="col">
+                        <div class="col-sm">
+                            <th><a class="btn btn-sm btn-info" href="{% url 'updateTicket' i.ticket_id %}">Edit</a></th>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <h1></h1>
+        <div class="col" style="background-color:#aaa;">
+            <div class="col-md">
+                <h1>Previous Parked Vehicle</h1>
+                <br>
+                <div class="row" id="ink">
+                    <div class="col">Ticket Id</div>
+                    <div class="col">Type</div>
+                    <div class="col">Date</div>
+                    <div class="col">Vehicle No</div>
+                    <div class="col">Slot</div>
+                    <div class="col">Valid time </div>
+                    <div class="col">Action</div>
+                </div>
+            </div>
+            <br>
+            {% for j in notactive %}
+            <div class="col-md">
+                <div class="row">
+                    <div class="col">{{j.ticket_id}}</div>
+                    <div class="col">{{j.vehicle_type}}</div>
+                    <div class="col">{{j.date}}</div>
+                    <div class="col">{{j.vehicle_number}}</div>
+                    <div class="col">{{j.slot}}</div>
+                    <div class="col">{{j.valid_time}} </div>
+                    <div class="col">
+                        <div class="col-sm">
+                            <th><a class="btn btn-sm btn-info" href="{% url 'updateTicket' j.ticket_id %}">Edit</a></th>
+                            <th><a></a></th>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

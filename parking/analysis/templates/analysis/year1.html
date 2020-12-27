@@ -1,0 +1,32 @@
+<script>
+	var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	var color = Chart.helpers.color;
+	var barChartData_total = {
+			labels: MONTHS,
+			datasets: [{
+			label: {{a|safe}},
+			backgroundColor: 'red',
+			borderColor: 'red',
+			borderWidth: 1,
+			data:{{vel1|safe}}
+			},{
+			label: {{b|safe}},
+			backgroundColor: 'blue',
+			borderColor: 'blue',
+			borderWidth: 1,
+			data: {{vel2|safe}}
+			},{
+			label: {{c|safe}},
+			backgroundColor: 'yellow',
+			borderColor: 'yellow',
+			borderWidth: 1,
+			data: {{vel3|safe}}
+				}
+			]
+
+		};
+
+
+
+
+</script>

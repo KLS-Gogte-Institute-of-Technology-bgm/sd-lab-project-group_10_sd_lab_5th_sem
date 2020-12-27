@@ -1,0 +1,32 @@
+<script>
+
+		var MONTHS = ['Today'];
+		var barChartData_today = {
+			labels: MONTHS,
+			datasets: [{
+				label: {{a|safe}},
+				backgroundColor: 'red',
+				borderColor: 'red',
+				borderWidth: 1,
+				data: {{four_today}}
+				}, {
+				label: {{b|safe}},
+				backgroundColor: 'blue',
+				borderColor: 'blue',
+				borderWidth: 1,
+				data: {{two_today}}
+			},{
+				label: {{c|safe}},
+				backgroundColor: 'yellow',
+				borderColor: 'yellow',
+				borderWidth: 1,
+				data: {{bicy_today}}
+			}
+			]
+
+		};
+
+		
+
+
+	</script>

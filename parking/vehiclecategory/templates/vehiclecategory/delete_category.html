@@ -1,0 +1,40 @@
+{% extends 'vehiclecategory/main.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<html>
+
+<head>
+    <title>Delete Visitor</title>
+    <style>
+        .jumbotron {
+            width: 55%;
+            margin: 50px auto;
+        }
+
+        p {
+            font-size: 20px;
+            font-style: normal;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h3>This action may delete the record permanently!</h3>
+        <p>Are you sure you want to delete "{{name}}"?</p>
+        <hr class="my-4">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <a class="btn btn-dark btn-lg" href="/vehiclecategory">Cancel</a>
+            <input class="btn btn-danger btn-lg" type="submit" name="Confirm">
+        </form>
+    </div>
+</body>
+
+</html>
+{% endblock %}

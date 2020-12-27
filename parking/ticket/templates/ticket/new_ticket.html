@@ -1,0 +1,67 @@
+{% extends 'ticket/main.html' %}
+{% load static %}
+{% block content %}
+<div class="consainer mx-4">
+    {% if messages %}
+    {{messages}}
+    {% endif %}
+</div>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Create two equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 45%;
+        padding: 10px;
+        height: 600px;
+        /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 800px) {
+        .column {
+            width: 100%;
+        }
+    }
+</style>
+
+{% if yes %}
+<div class="row">
+    <div class="column mx-5" style="background-color:#aaa;">
+        <center>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <h6>Vehicle type : {{form.vehicle_type}}</h6><br>
+                <h6>Owner name : {{form.owner_name}}</h6><br>
+                <h6>Vehicle number : {{form.vehicle_number}}</h6><br>
+                <h6>Phone number : {{form.phone_number}}</h6><br>
+                <h6>Slot : {{form.slot}}</h6><br>
+                <h6>Validity time : {{form.valid_time}}</h6><br>
+                <h6>Slot active : {{form.slot_active}}</h6><br>
+                <input type="submit" name="Submit">
+            </form>
+        </center>
+    </div>
+    <div class="column mx-4" style="background-color:#bbb;">
+        <div class="column">
+            <center>
+                <h4>Slot left :</h4>
+                {% for i in Slot %}
+                <p>{{i}}</p>
+                {% endfor %}
+            </center>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

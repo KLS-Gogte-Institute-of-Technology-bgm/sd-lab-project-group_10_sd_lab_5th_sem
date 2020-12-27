@@ -1,0 +1,59 @@
+{% load static %}
+
+<style>
+  .hello-msg {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+  <img src="https://www.otsuitesandpods.com/images/makefg.png" width="50" height='50'>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href="#"> </a>
+      {% if request.user.is_staff and request.user.is_superuser and request.user.is_active %}
+      <a class="nav-item nav-link " href='/vehiclecategory'>Vehicle Category</a>
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/ticket'>Ticket</a>
+      <a class="nav-item nav-link " href=> </a>
+      <a class="nav-item nav-link" href='/managevehicle'>Manage Vehicles</a>
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/analysis'> Analysis</a>
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/searchvehicle'>Search Vehicles</a>
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/slot'>Slot</a>
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/timeup'>Time up</a>
+      {% endif %}
+      {% if request.user.is_staff and not request.user.is_superuser and request.user.is_active %}
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/ticket'>Ticket</a>
+      <a class="nav-item nav-link " href=> </a>
+      <a class="nav-item nav-link" href='/managevehicle'>Manage Vehicles</a>
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/analysis'> Analysis</a>
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/searchvehicle'>Search Vehicles</a>
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/timeup'>Time up</a>
+      {% endif %}
+      {% if not request.user.is_staff and not request.user.is_superuser and request.user.is_active %}
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/ticket'>Ticket</a>
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/user'>Profile</a>
+      <a class="nav-item nav-link " href="#"> </a>
+      <a class="nav-item nav-link " href='/myTicket'>Booked</a>
+      {% endif %}
+    </div>
+  </div>
+  <span class='hello-msg'>Hello, {{request.user}}</span>
+  <span><a class='hello-msg' href="{% url 'logoutPage' %}">Logout</a></span>
+</nav>

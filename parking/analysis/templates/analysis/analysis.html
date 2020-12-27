@@ -1,0 +1,56 @@
+{% extends 'analysis/main.html' %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+{% include 'analysis/year.html' %}
+{% include 'analysis/today.html' %}
+{% include 'analysis/year1.html' %}
+{% include 'analysis/today1.html' %}
+
+<script>
+  window.onload = function () {
+    var ctx_today = document.getElementById('chart-area').getContext('2d');
+    window.myDoughnut = new Chart(ctx_today, config_today);
+
+    var ctx2_today = document.getElementById('canvas').getContext('2d');
+    window.myBar = new Chart(ctx2_today, { type: 'bar', data: barChartData_today, });
+
+    var ctx_total = document.getElementById('chart-area1').getContext('2d');
+    window.myDoughnut = new Chart(ctx_total, config_total);
+
+    var ctx2_total = document.getElementById('canvas1').getContext('2d');
+    window.myBar = new Chart(ctx2_total, { type: 'bar', data: barChartData_total, });
+
+  };
+</script>
+
+<div class="container">
+
+  <h1 style="text-align:center">Today :</h1>
+  <hr>
+  <div class="row" style="background-color:#aaa;">
+    <div id="container" style="width: 475px;">
+      <canvas id="chart-area"></canvas>
+    </div>
+
+    <div id="container" style="width: 475px;">
+      <canvas id="canvas" style="display: block; width: 517px; height: 258px;" width="517" height="258"
+        class="chartjs-render-monitor"></canvas>
+    </div>
+  </div>
+
+  <h1 style="text-align:center">Till now :</h1>
+  <hr>
+  <div class="row" style="background-color:#aaa;">
+    <div id="container" style="width: 475px;">
+      <canvas id="chart-area1"></canvas>
+    </div>
+    <div id="container" style="width: 475px;">
+      <canvas id="canvas1" style="display: block; width: 517px; height: 258px;" width="517" height="258"
+        class="chartjs-render-monitor"></canvas>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

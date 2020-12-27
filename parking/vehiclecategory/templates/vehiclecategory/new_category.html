@@ -1,0 +1,49 @@
+{% extends 'vehiclecategory/main.html' %}
+{% load static %}
+{% block content %}
+
+
+<html>
+
+<head>
+    <title>Create Category</title>
+    <style>
+        .jumbotron {
+            width: 55%;
+            margin: 50px auto;
+        }
+
+        p {
+            font-size: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="jumbotron">
+        <hr class="my-4">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="row mx-3 col-6">
+                <th>Type :</th>{{form.type}}<br>
+            </div>
+            <div>
+                <br>
+            </div>
+            <div class="row mx-3 col-6">
+                <th>Describe:</th>{{form.describe}}<br>
+            </div>
+            <br>
+            <input class="btn btn-danger btn-lg" type="submit" name="Confirm">
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+
+{% endblock %}

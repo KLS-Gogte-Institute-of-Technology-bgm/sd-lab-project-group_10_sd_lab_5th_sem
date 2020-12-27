@@ -1,0 +1,54 @@
+{% extends 'searchvehicle/main.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="container">
+        <form method="GET">
+            {% csrf_token %}
+            <div class="col">
+                <h7>Vehicle number :{{myFilter.form.vehicle_number}}</h7>
+                <h7>Owner name :{{myFilter.form.owner_name}}</h7>
+                <h7>Phone number :{{myFilter.form.phone_number}}</h7>
+                <h7>Slot :{{myFilter.form.slot}}</h7>
+                <!-- <h6>Date >= :{{myFilter.form.start_date}}</h6>
+                <h6>Date <= : {{myFilter.form.end_date}}</h6> -->
+                <button type="submit" class="btn btn-info mt-2">Submit</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="row" style="background-color:#aaa;">
+        <div class="col">
+            <div class="col-md ">
+                <div class="row " id="ink">
+                    <h4 class="col">Ticket_Id</h4>
+                    <h4 class="col">Type</h4>
+                    <h4 class="col">Owner_name</h4>
+                    <h4 class="col">Date</h4>
+                    <h4 class="col">Vehicle_No</h4>
+                    <h4 class="col">Phone_No</h4>
+                    <h4 class="col">Slot_name</h4>
+                    <h4 class="col">Valid_time </h4>
+                </div>
+            </div>
+            <br>
+            {% for i in ticket %}
+            <div class="col-md">
+                <div class="row">
+                    <div class="col">{{i.ticket_id}}</div>
+                    <div class="col">{{i.vehicle_type}}</div>
+                    <div class="col">{{i.owner_name}}</div>
+                    <div class="col">{{i.date}}</div>
+                    <div class="col">{{i.vehicle_number}}</div>
+                    <div class="col">{{i.phone_number}}</div>
+                    <div class="col">{{i.slot}}</div>
+                    <div class="col">{{i.valid_time}} </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

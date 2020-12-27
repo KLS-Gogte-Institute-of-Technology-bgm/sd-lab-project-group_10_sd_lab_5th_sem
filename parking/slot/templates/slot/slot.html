@@ -1,0 +1,52 @@
+{% extends 'slot/main.html' %}
+{% block content %}
+
+<h1 style="text-align:center">Manage Slot</h1>
+<br>
+<hr>
+
+<div class="container">
+  <th><a class="btn btn-sm btn-info" href="{% url 'createSlot' %}">Create new slot</a></th>
+</div>
+<hr>
+<div class="container">
+  <div class="row mx-3">
+    <div class="col-sm">
+      S.No
+    </div>
+    <div class="col-sm">
+      Name
+    </div>
+    <div class="col-sm">
+      Description
+    </div>
+    <div class="col-sm">
+      Action
+    </div>
+  </div>
+</div>
+<hr>
+{% for i in slot %}
+<div class="container">
+  <div class="row mx-3">
+
+    <div class="col-sm">
+      {{i.slot_id}}
+    </div>
+    <div class="col-sm">
+      {{i.slot_name}}
+    </div>
+    <div class="col-sm">
+      {{i.describe|slice:25}}
+    </div>
+    <div class="col-sm">
+      <th><a class="btn btn-sm btn-info" href="{% url 'updateSlot' i.slot_id %}">Edit</a></th>
+      <th><a class="btn btn-sm btn-danger" href="{% url 'deleteSlot' i.slot_id %}">Delete</a></th>
+    </div>
+
+  </div>
+</div>
+<br>
+{% endfor %}
+
+{% endblock %}
